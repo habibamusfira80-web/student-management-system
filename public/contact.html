@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentSphere | Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .contact-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 80px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop') center/cover;
+            opacity: 0.25;
+            z-index: 0;
+        }
+        .contact-header .container { position: relative; z-index: 1; }
+        .contact-header h1 { font-size: 3.5rem; font-weight: 800; }
+        .contact-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            height: 100%;
+            text-align: center;
+        }
+        .contact-card:hover { transform: translateY(-8px); }
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .contact-icon i { font-size: 2.2rem; color: white; line-height: 80px; }
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .social-icon {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            margin: 0 8px;
+            transition: 0.3s;
+            color: #667eea;
+            text-align: center;
+        }
+        .social-icon:hover { background: #667eea; color: white; transform: translateY(-3px); }
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102,126,234,0.25);
+        }
+        .btn-send {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            padding: 12px;
+            font-weight: 600;
+        }
+        .btn-send:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(102,126,234,0.4); }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/"><i class="fas fa-graduation-cap me-2"></i>StudentSphere</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/students">Students</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/feedback">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header with Image -->
+    <div class="contact-header">
+        <div class="container text-center">
+            <i class="fas fa-headset fa-4x mb-3"></i>
+            <h1 class="display-4 fw-bold">Get in Touch</h1>
+            <p class="lead">We're here to help and answer any questions you might have.</p>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <!-- Contact Info Cards -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h4>Visit Us</h4>
+                    <p>PMAS-Arid Agriculture University<br>Murree Road, Rawalpindi, Pakistan</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                    <h4>Call Us</h4>
+                    <p>+92 51 929 1234<br>+92 300 123 4567</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Email Us</h4>
+                    <p>info@studentsphere.com<br>support@studentsphere.com</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map and Form -->
+        <div class="row g-4">
+            <div class="col-md-6" data-aos="fade-right">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.123456789!2d73.0479!3d33.6112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df954d3e4c5b6f%3A0x4e8a5c2f1d9e8a7b!2sPMAS-Arid%20Agriculture%20University!5e0!3m2!1sen!2s!4v1234567890" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <div class="contact-card" style="text-align: left;">
+                    <h3><i class="fas fa-paper-plane text-primary me-2"></i>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Subject</label>
+                            <input type="text" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="4" placeholder="Your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-send btn-primary w-100">Send Message <i class="fas fa-arrow-right ms-2"></i></button>
+                    </form>
+                    <div class="text-center mt-4">
+                        <h5>Follow Us</h5>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white-50 text-center py-4">
+        <div class="container">
+            <p>&copy; 2026 StudentSphere | Final Semester Project | PMAS-Arid University</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✅ Thank you! Your message has been sent successfully. We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

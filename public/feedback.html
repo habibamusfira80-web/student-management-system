@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentSphere | Campus Feedback</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .feedback-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .feedback-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        .feedback-header .container {
+            position: relative;
+            z-index: 1;
+        }
+        .feedback-form-card {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(5px);
+            border-radius: 30px;
+            padding: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .rating-star {
+            font-size: 2rem;
+            color: #ffc107;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .rating-star:hover {
+            transform: scale(1.2);
+            text-shadow: 0 0 5px #ffc107;
+        }
+        .feedback-card {
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border-left: 6px solid #f5576c;
+            height: 100%;
+        }
+        .feedback-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+            background: #fffafc;
+        }
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            border: none;
+            color: white;
+            padding: 12px 35px;
+            font-weight: 600;
+            transition: 0.3s;
+            border-radius: 50px;
+        }
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(240,147,251,0.4);
+            color: white;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 45px;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            border-radius: 5px;
+        }
+        .quote-icon {
+            font-size: 1.6rem;
+            color: #f5576c;
+            opacity: 0.4;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        footer {
+            background: #1a1a2e;
+            color: #aaa;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .form-control:focus {
+            border-color: #f5576c;
+            box-shadow: 0 0 0 0.2rem rgba(245,87,108,0.25);
+        }
+        .nav-link.active {
+            font-weight: bold;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/"><i class="fas fa-graduation-cap me-2"></i>StudentSphere</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/students">Students</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/feedback">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="feedback-header">
+        <div class="container">
+            <i class="fas fa-comment-dots fa-4x mb-3"></i>
+            <h1 class="display-4 fw-bold">What Students Say ❤️</h1>
+            <p class="lead">Your voice matters – share your campus experience!</p>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <!-- Feedback Form -->
+        <div class="feedback-form-card" data-aos="fade-up">
+            <h3 class="mb-4"><i class="fas fa-pen-fancy text-danger me-2"></i>Leave a Sweet Review</h3>
+            <form id="feedbackForm">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <input type="text" id="fbName" class="form-control form-control-lg" placeholder="Your beautiful name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                            <span class="me-2 fw-bold">Your Rating:</span>
+                            <i class="fas fa-star rating-star" data-value="1"></i>
+                            <i class="fas fa-star rating-star" data-value="2"></i>
+                            <i class="fas fa-star rating-star" data-value="3"></i>
+                            <i class="fas fa-star rating-star" data-value="4"></i>
+                            <i class="fas fa-star rating-star" data-value="5"></i>
+                            <input type="hidden" id="fbRating" value="5">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <textarea id="fbMessage" class="form-control" rows="3" placeholder="Tell us about your campus life, teachers, friends, or anything you love..." required></textarea>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-gradient btn-lg px-5">
+                            <i class="fas fa-paper-plane me-2"></i>Share My Feedback
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="mt-5 pt-4">
+            <h2 class="text-center fw-bold section-title">⭐ Student Reviews ⭐</h2>
+            <div id="feedbackList" class="row g-4">
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-danger" role="status"></div>
+                    <p class="mt-2">Loading amazing reviews...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 StudentSphere | Powered by Student Love 💖</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Star rating logic
+        const stars = document.querySelectorAll('.rating-star');
+        const ratingInput = document.getElementById('fbRating');
+        
+        function setStars(value) {
+            stars.forEach((star, idx) => {
+                if (idx < value) star.style.color = '#ffc107';
+                else star.style.color = '#ddd';
+            });
+        }
+        
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const val = parseInt(this.getAttribute('data-value'));
+                ratingInput.value = val;
+                setStars(val);
+            });
+        });
+        setStars(5); // default 5 stars
+
+        // ✅ 6 reviews with Fatima Naeem (fixed comma and array)
+        let feedbacks = [
+            { id: 1, name: "Eman Imtiaz", message: "The library is so peaceful! I love the quiet study areas and the huge collection of books. 📚", rating: 5, date: "2026-04-18" },
+            { id: 2, name: "Fatima Ali", message:  "Cafeteria food is delicious and affordable. Love the chai spot! ☕", rating: 5, date: "2026-04-14" },
+            { id: 3, name: "Habiba Malik", message: "Sports week was amazing! The ground and facilities are top-notch. ⚽🏀", rating: 4, date: "2026-04-16" },
+            { id: 4, name: "Hajra Batool", message: "The IT labs are fully equipped with modern computers. Practical learning is great.", rating: 5, date: "2026-04-15" },
+            { id: 5, name: "Alisha Khan", message: "Teachers are very supportive. The campus environment is green and refreshing. Best decision to study here! 🌿", rating: 5, date: "2026-04-17" },
+            { id: 6, name: "Fatima Naeem", message: "The campus is so beautiful and peaceful. I love studying here! 📖✨", rating: 4, date: "2026-04-13" }
+        ];
+
+        // Function to display feedbacks
+        function displayFeedbacks() {
+            const container = document.getElementById('feedbackList');
+            if (!feedbacks.length) {
+                container.innerHTML = '<div class="col-12 text-center">No reviews yet. Be the first to share!</div>';
+                return;
+            }
+            container.innerHTML = feedbacks.map(fb => `
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="feedback-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="avatar me-3">${fb.name.charAt(0)}</div>
+                            <div>
+                                <h5 class="mb-0 fw-bold">${escapeHtml(fb.name)}</h5>
+                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i>${fb.date}</small>
+                            </div>
+                        </div>
+                        <p><i class="fas fa-quote-left quote-icon"></i> ${escapeHtml(fb.message)}</p>
+                        <div class="mt-2">
+                            ${Array(fb.rating).fill('<i class="fas fa-star text-warning me-1"></i>').join('')}
+                            ${Array(5-fb.rating).fill('<i class="far fa-star text-warning me-1"></i>').join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
+
+        // Add new feedback from form
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('fbName').value.trim();
+            const message = document.getElementById('fbMessage').value.trim();
+            const rating = parseInt(document.getElementById('fbRating').value);
+
+            if (!name || !message) {
+                alert('Please enter your name and message ❤️');
+                return;
+            }
+
+            const newFeedback = {
+                id: feedbacks.length + 1,
+                name: name,
+                message: message,
+                rating: rating,
+                date: new Date().toISOString().split('T')[0]
+            };
+            feedbacks.unshift(newFeedback); // add at top
+            displayFeedbacks();
+            document.getElementById('feedbackForm').reset();
+            document.getElementById('fbRating').value = '5';
+            setStars(5);
+            alert('Thank you for your valuable feedback! 🌟');
+        });
+
+        // Initial load
+        displayFeedbacks();
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fc;
+}
+
+/* Hero Section with Background Image */
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Feature Cards */
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 15px;
+    background: white;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.feature-card i {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Stats Section */
+.stats-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin-top: 2rem;
+}
+
+.stat-item {
+    padding: 2rem;
+    transition: transform 0.3s;
+}
+
+.stat-item:hover {
+    transform: scale(1.05);
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Table Styling */
+.table thead th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 0;
+    }
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+}

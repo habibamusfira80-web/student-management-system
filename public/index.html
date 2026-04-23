@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentSphere | Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .hero-full {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background: url('https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop') center/cover no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        .hero-full::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(102,126,234,0.85), rgba(118,75,162,0.85));
+            z-index: 1;
+        }
+        .hero-full .container { position: relative; z-index: 2; }
+        .hero-full h1 { font-size: 4rem; font-weight: 800; animation: fadeInUp 1s ease-out; }
+        .hero-full p { font-size: 1.5rem; animation: fadeInUp 1s ease-out 0.2s both; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .stat-counter { font-size: 3rem; font-weight: 800; color: #667eea; }
+        .service-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            width: 80px; height: 80px; line-height: 80px; text-align: center;
+            border-radius: 50%; color: white; font-size: 2rem;
+            margin: 0 auto 20px; transition: 0.3s;
+        }
+        .service-card:hover .service-icon { transform: scale(1.1) rotate(5deg); }
+        .gallery-img {
+            width: 100%; height: 250px; object-fit: cover; border-radius: 15px;
+            transition: 0.3s;
+        }
+        .gallery-img:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+        .testimonial-card {
+            background: white; border-radius: 20px; padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: 0.3s; margin: 20px 0;
+            text-align: center;
+        }
+        .testimonial-card:hover { transform: translateY(-10px); }
+        .testimonial-img {
+            width: 80px; height: 80px; border-radius: 50%; object-fit: cover;
+            margin-bottom: 15px; border: 3px solid #667eea;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 80px 0; color: white; text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/"><i class="fas fa-graduation-cap me-2"></i>StudentSphere</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="/students">Students</a></li>
+    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+    <li class="nav-item"><a class="nav-link" href="/feedback">Feedback</a></li>
+</ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-full">
+        <div class="container">
+            <h1 class="display-3 fw-bold">Empower Education with StudentSphere</h1>
+            <p class="lead">The ultimate student management platform for modern institutions.</p>
+            <a href="/students" class="btn btn-light btn-lg px-5 mt-3">Get Started <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+    </section>
+
+    <!-- Stats Counters -->
+    <section class="container py-5">
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4" data-aos="fade-up"><div class="stat-counter" id="studentsCount">0</div><p class="fw-bold">Students Enrolled</p></div>
+            <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="100"><div class="stat-counter" id="coursesCount">0</div><p class="fw-bold">Courses Offered</p></div>
+            <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="200"><div class="stat-counter" id="teachersCount">0</div><p class="fw-bold">Expert Teachers</p></div>
+            <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="300"><div class="stat-counter" id="satisfiedCount">0</div><p class="fw-bold">Happy Parents</p></div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="container my-5">
+        <div class="text-center mb-5"><h2 class="fw-bold">Why Choose StudentSphere?</h2><p class="text-muted">Powerful features that make student management effortless</p></div>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up"><div class="service-card text-center p-4"><div class="service-icon mx-auto"><i class="fas fa-cloud-upload-alt"></i></div><h4>Cloud Based</h4><p>Access your data anytime, anywhere with secure cloud storage.</p></div></div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100"><div class="service-card text-center p-4"><div class="service-icon mx-auto"><i class="fas fa-chart-line"></i></div><h4>Real-time Analytics</h4><p>Track student performance with interactive dashboards.</p></div></div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200"><div class="service-card text-center p-4"><div class="service-icon mx-auto"><i class="fas fa-mobile-alt"></i></div><h4>Fully Responsive</h4><p>Optimized for desktop, tablet, and mobile devices.</p></div></div>
+        </div>
+    </section>
+
+    <!-- Gallery - Campus Life (Relevant Images) -->
+    <section class="container my-5">
+        <div class="text-center mb-5"><h2 class="fw-bold">Campus Life & Moments</h2><p class="text-muted">Experience the vibrant academic environment</p></div>
+        <div class="row g-3">
+            <div class="col-md-4" data-aos="zoom-in">
+                <img src="https://images.pexels.com/photos/301926/pexels-photo-301926.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" class="gallery-img" alt="Students in library">
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" class="gallery-img" alt="College campus">
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <img src="https://images.pexels.com/photos/256455/pexels-photo-256455.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" class="gallery-img" alt="Sports day">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials with Permanent Human Photos (Pexels Stable Links) -->
+    <section class="container my-5">
+        <div class="text-center mb-5"><h2 class="fw-bold">What People Say</h2><p class="text-muted">Trusted by students, teachers, and parents</p></div>
+        <div class="row">
+            <div class="col-md-4" data-aos="fade-right">
+                <div class="testimonial-card">
+                    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop" class="testimonial-img" alt="Sarah Ahmed">
+                    <h5>Sarah Ahmed</h5>
+                    <p class="text-muted">Student</p>
+                    <p><i class="fas fa-quote-left text-primary me-2"></i>StudentSphere made tracking my grades so easy! The interface is beautiful and intuitive.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="testimonial-card">
+                    <img src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop" class="testimonial-img" alt="Dr. Khalid Malik">
+                    <h5>Dr. Khalid Malik</h5>
+                    <p class="text-muted">Professor</p>
+                    <p><i class="fas fa-quote-left text-primary me-2"></i>A powerful tool for managing student data. Saves hours of administrative work.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-left">
+                <div class="testimonial-card">
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop" class="testimonial-img" alt="Fatima Zafar">
+                    <h5>Fatima Zafar</h5>
+                    <p class="text-muted">Parent</p>
+                    <p><i class="fas fa-quote-left text-primary me-2"></i>I can easily check my child's progress. Very transparent and reliable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container"><h2 class="fw-bold">Ready to Transform Your Institution?</h2><p class="lead">Join hundreds of schools using StudentSphere for efficient management.</p><a href="/students" class="btn btn-light btn-lg px-5 mt-3">Start Free Trial <i class="fas fa-chevron-right ms-2"></i></a></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white-50 pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4"><h5 class="text-white">StudentSphere</h5><p>Modern solution for student data management. Built with cutting-edge web technologies.</p><div><a href="#" class="text-white-50 me-2"><i class="fab fa-facebook-f"></i></a><a href="#" class="text-white-50 me-2"><i class="fab fa-twitter"></i></a><a href="#" class="text-white-50 me-2"><i class="fab fa-instagram"></i></a></div></div>
+                <div class="col-md-2 mb-4"><h6 class="text-white">Quick Links</h6><ul class="list-unstyled"><li><a href="/" class="text-white-50">Home</a></li><li><a href="/students" class="text-white-50">Students</a></li><li><a href="/about" class="text-white-50">About</a></li></ul></div>
+                <div class="col-md-3 mb-4"><h6 class="text-white">Contact Info</h6><p><i class="fas fa-map-marker-alt me-2"></i> PMAS-Arid University, Rawalpindi</p><p><i class="fas fa-envelope me-2"></i> info@studentsphere.com</p></div>
+                <div class="col-md-3 mb-4"><h6 class="text-white">Newsletter</h6><div class="input-group"><input type="email" class="form-control" placeholder="Your email"><button class="btn btn-primary" type="button">Subscribe</button></div></div>
+            </div>
+            <hr><p class="text-center">&copy; 2026 StudentSphere | Full-Stack Project</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        function animateCounter(el, start, end, duration) {
+            let startTime = null;
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                let progress = Math.min((timestamp - startTime) / duration, 1);
+                el.innerText = Math.floor(progress * (end - start) + start);
+                if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(document.getElementById('studentsCount'), 0, 1250, 2000);
+                    animateCounter(document.getElementById('coursesCount'), 0, 48, 2000);
+                    animateCounter(document.getElementById('teachersCount'), 0, 86, 2000);
+                    animateCounter(document.getElementById('satisfiedCount'), 0, 3200, 2000);
+                    observer.disconnect();
+                }
+            });
+        });
+        observer.observe(document.querySelector('.stat-counter'));
+    </script>
+</body>
+</html>
